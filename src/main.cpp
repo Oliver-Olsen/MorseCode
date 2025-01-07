@@ -1,12 +1,18 @@
 #include <Arduino.h>
 #define LEDPIN 13
 // put function declarations here:
-int myFunction(char);
+void charConverter(char);
 
 void setup() {
   // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  unsigned char word = "test";
+  charConverter(word);
   Serial.begin(115200); 
+
+
+
+
+
 }
 
 void loop() {
@@ -15,6 +21,7 @@ void loop() {
 }
 
 // put function definitions here:
-int myFunction(char word) {
-  return word;
+
+charConverter(unsigned char word){
+
 }
