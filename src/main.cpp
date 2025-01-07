@@ -1,26 +1,36 @@
 #include <Arduino.h>
 
-#define LEDPIN 13 //Defines the pin used for the LED as pin 13
-#define TIMEUNIT 400 //Defines the amount if milliseconds in a time unit
-#define MSG "SOS" //Defines the input we want to write with morse
+// Question a1:
+// To write the numbers from 0-9 you would only need 4 bits (1001 = 9).
+
+// The reason why 5 bits is required, is due to the letters. Most/some of the
+// 4 bit length combinations are already taken. Therefore it is easier to use the 5-bit setup,
+// and make a pattern, so it is easy to tell one number from another.
+
+// Static variables
+#define LEDPIN 13     //Defines the pin used for the LED as pin 13
+#define TIMEUNIT 400  //Defines the amount if milliseconds in a time unit
+#define MSG "SOS"     //Defines the input we want to write with morse
 
 int wordLength; //Creates an unsigned integer, word
 
 char in[] = MSG; //Creates a character array for each letter in the input
 char letter; 
 
-// Function for converting a single character to morse code
-void morseConverter(char word);
+// Function declarations 
 
-void dot(); 
 
-void dash();
+void morseConverter(char word);   // Converts char to dots and dashes
 
-void newLetter();
+void dot();                       // Function is called to blink once (quick)
 
-void newWord();
+void dash();                      // Function is called to blink onxe (long)
 
-void msgEnd();
+void newLetter();                 // Used time delay between letters
+
+void newWord();                   // Used time delay between words
+
+void msgEnd();                    // Used time delay at end of message
 
 
 void setup() {
@@ -44,6 +54,11 @@ void loop() {
   }
   msgEnd(); //Upon completing the message, assumes next input is a new word
 }
+
+
+
+
+
 
 void dot() { //A function which produces a dot with the LED
   digitalWrite(LEDPIN, HIGH); //Turns on the LED
@@ -72,13 +87,17 @@ void msgEnd() { //A delay function for ending the message
   newLetter(); 
 }
 
-void morseConverter(char word){
+void morseConverter(char letter){
   // Function finds the corrosponding case for the incomming letter.
   // and calls for either the dots and or dash functions.
   // if a space is entered, then the deault catches the space and handles it.
-  word = tolower(word); 
+  // By using the given morse code from the lecture, we can now make a switch, for all the possible letters.
+  
 
-  switch (word)
+  // forces lower case (else the desault case will only be used with the eg. SOS code)
+  letter = tolower(letter); 
+
+  switch (letter)
   {
     case 'a':
     dot(), dash();
