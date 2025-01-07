@@ -1,12 +1,12 @@
 #include <Arduino.h>
 
 #define LEDPIN 13 //Defines the pin used for the LED as pin 13
-#define TIMEUNIT 500 //Defines the amount if milliseconds in a time unit
-#define INPUT "SOS" //Defines the input we want to write with morse
+#define TIMEUNIT 400 //Defines the amount if milliseconds in a time unit
+#define MSG "SOS" //Defines the input we want to write with morse
 
-unsigned int wordLength; //Creates an unsigned integer, word
+int wordLength; //Creates an unsigned integer, word
 
-char in[] = INPUT; //Creates a character array for each letter in the input
+char in[] = MSG; //Creates a character array for each letter in the input
 char letter; 
 
 // Function for converting a single character to morse code
@@ -24,10 +24,11 @@ void msgEnd();
 
 
 void setup() {
+  Serial.begin(9600); 
   pinMode(LEDPIN, OUTPUT); //Sets LEDPIN as an output
   digitalWrite(LEDPIN, LOW); //Ensures LEDPIN starts low
 
-  wordLength = strlen(INPUT); //Determines how many characters are in the input
+  wordLength = strlen(MSG); //Determines how many characters are in the input
   
   //CODE STRUCTIRE:
   //SplitCodeFunction
@@ -38,6 +39,7 @@ void setup() {
 void loop() {
   for (int i = 0; i < wordLength; i++) {//Runs a for loop for every character in the input
     letter = in[i]; //Assigns the current letter to a character 'letter'
+    Serial.println(letter); 
     morseConverter(letter); //Runs the current letter through the morse converter
   }
   msgEnd(); //Upon completing the message, assumes next input is a new word
@@ -62,7 +64,7 @@ void newLetter() { //A delay function for sepereating letters
 }
 
 void newWord() {
-  delay(7 * TIMEUNIT); 
+  delay(1 * TIMEUNIT); 
 }
 
 void msgEnd() { //A delay function for ending the message
