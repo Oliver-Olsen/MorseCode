@@ -5,11 +5,13 @@ int myFunction(char);
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  int result = myFunction(2, 3);
+  Serial.begin(115200); 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  
 }
 
 // put function definitions here:
