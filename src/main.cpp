@@ -99,9 +99,9 @@ void morseConverter(char letter){
 
   switch (letter)
   {
-    case 'a':
+    case 'a': // Is the letter is an "a", then it calls the two frunctions dot(), dash(); (in this order).
     dot(), dash();
-    break;
+    break;  // Exits the switch
     
 
     case 'b':
@@ -283,5 +283,5 @@ void morseConverter(char letter){
     newWord();
     break;
   }
-  newLetter();
+  newLetter(); // This delay is added everytime at the end after the switch has been run.
 }
