@@ -7,6 +7,7 @@
 unsigned int wordLength; //Creates an unsigned integer, word
 
 char in[] = INPUT; //Creates a character array for each letter in the input
+char letter; 
 
 void setup() {
   pinMode(LEDPIN, OUTPUT); //Sets LEDPIN as an output
@@ -21,9 +22,11 @@ void setup() {
 }
 
 void loop() {
-  for (int i = 0; i < wordLength; i++) //Runs a for loop for every character in the input
-    char letter = in[i]; //Assigns the current letter to a character 'letter'
+  for (int i = 0; i < wordLength; i++) {//Runs a for loop for every character in the input
+    letter = in[i]; //Assigns the current letter to a character 'letter'
     morseConverter(letter); //Runs the current letter through the morse converter
+  }
+  msgEnd(); //Upon completing the message, assumes next input is a new word
 }
 
 void dot() { //A function which produces a dot with the LED
@@ -40,193 +43,198 @@ void dash() { //A function which produces a dash with the LED
   delay(1 * TIMEUNIT); //Waits for a time unit before the next part of the letter
 }
 
-void newLetter() {
+void newLetter() { //A delay function for sepereating letters
   delay(3 * TIMEUNIT); //Waits for three time units before the next letter begins
 }
 
-void newWord() {
+void newWord() { //A delay function for seperating words
   delay(1 * TIMEUNIT); //Waits for 1 time units before the next word begins, since newLetter will be triggered before and after this function, resulting in 7 time units tital
+}
+
+void msgEnd() { //A delay function for ending the message
+  newWord(); 
+  newLetter(); 
 }
 
 void morseConverter(char word){
   switch (word)
   {
-    case "a":
+    case 'a':
     dot(), dash();
     break;
     
 
-    case "b":
+    case 'b':
     dash(), dot(), dot(), dot();
     break;
     
 
-    case "c":
+    case 'c':
     1;
     break;
     
     
-    case "d":
+    case 'd':
     1;
     break;
     
     
-     case "e":
+     case 'e':
     1;
     break;
     
     
-    case "f":
+    case 'f':
     1;
     break;
     
     
-    case "g":
+    case 'g':
     1;
     break;
     
     
-    case "h":
+    case 'h':
     1;
     break;
     
     
-    case "i":
+    case 'i':
     1;
     break;
     
     
-    case "j":
+    case 'j':
     1;
     break;
     
     
-    case "k":
+    case 'k':
     1;
     break;
     
     
-    case "l":
+    case 'l':
     1;
     break;
     
     
-    case "m":
+    case 'm':
     1;
     break;
     
     
-    case "n":
+    case 'n':
     1;
     break;
     
     
-    case "o":
+    case 'o':
     1;
     break;
 
     
-    case "p":
+    case 'p':
     1;
     break;
     
 
-    case "q":
+    case 'q':
     1;
     break;
   
   
-    case "r":
+    case 'r':
     1;
     break;
   
   
-    case "s":
+    case 's':
     1;
     break;
   
   
-    case "t":
+    case 't':
     1;
     break;
   
   
-    case "u":
+    case 'u':
     1;
     break;
   
   
-    case "v":
+    case 'v':
     1;
     break;
   
   
-    case "w":
+    case 'w':
     1;
     break;
   
   
-    case "x":
+    case 'x':
     1;
     break;
   
   
-    case "y":
+    case 'y':
     1;
     break;
   
   
-    case "z":
-    1;
-    break;
-    
-
-    case "0":
+    case 'z':
     1;
     break;
     
 
-    case "1":
+    case '0':
     1;
     break;
     
 
-    case "2":
+    case '1':
     1;
     break;
     
 
-    case "3":
+    case '2':
     1;
     break;
     
 
-    case "4":
+    case '3':
     1;
     break;
     
 
-    case "5":
+    case '4':
     1;
     break;
     
 
-    case "6":
+    case '5':
     1;
     break;
     
 
-    case "7":
+    case '6':
+    1;
+    break;
+    
+
+    case '7':
     1;
     break;
     
     
-    case "8":
+    case '8':
     1;
     break;
   
   
-    case "9":
+    case '9':
     1;
     break;
   
