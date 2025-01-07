@@ -3,7 +3,7 @@
 #define TIMEUNIT 500
 
 
-
+// Function for converting a single character to morse code
 void charConverter(char word);
 
 void setup() {
@@ -45,7 +45,12 @@ void newWord() {
   delay(7 * TIMEUNIT); 
 }
 
+
+
 void charConverter(char word){
+  // Function finds the corrosponding case for the incomming letter.
+  // and calls for either the dots and or dash functions.
+  // if a space is entered, then the deault catches the space and handles it.
   switch (word)
   {
     case "a":
@@ -59,176 +64,177 @@ void charConverter(char word){
     
 
     case "c":
-    1;
+    dash(), dot(), dash(), dot();
     break;
     
     
     case "d":
-    1;
+    dash(), dot(), dot();
     break;
     
     
      case "e":
-    1;
+    dot();
     break;
     
     
     case "f":
-    1;
+    dot(), dot(), dash(), dot();
     break;
     
     
     case "g":
-    1;
+    dash(), dash(), dot();
     break;
     
     
     case "h":
-    1;
+    dot(), dot(), dot(), dot();
     break;
     
     
     case "i":
-    1;
+    dot(), dot();
     break;
     
     
     case "j":
-    1;
+    dot(), dash(), dash(), dash();
     break;
     
     
     case "k":
-    1;
+    dash(), dot(), dash();
     break;
     
     
     case "l":
-    1;
+    dot(), dash(), dot(), dot();
     break;
     
     
     case "m":
-    1;
+    dash(), dash();
     break;
     
     
     case "n":
-    1;
+    dash(), dot();
     break;
     
     
     case "o":
-    1;
+    dash(), dash(), dash();
     break;
 
     
     case "p":
-    1;
+    dot(), dash(), dash(), dot();
     break;
     
 
     case "q":
-    1;
+    dash(), dash(), dot(), dash();
     break;
   
   
     case "r":
-    1;
+    dot(), dash(), dot();
     break;
   
   
     case "s":
-    1;
+    dot(), dot(), dot();
     break;
   
   
     case "t":
-    1;
+    dash();
     break;
   
   
     case "u":
-    1;
+    dot(), dot(), dash();
     break;
   
   
     case "v":
-    1;
+    dot(), dot(), dot(), dash();
     break;
   
   
     case "w":
-    1;
+    dot(), dash(), dash();
     break;
   
   
     case "x":
-    1;
+    dash(), dot(), dot(), dash();
     break;
   
   
     case "y":
-    1;
+    dash(), dot(), dash(), dash();
     break;
   
   
     case "z":
-    1;
+    dash(), dash(),dot(), dot();
     break;
     
 
     case "0":
-    1;
+    dash(), dash(), dash(), dash(), dash();
     break;
     
 
     case "1":
-    1;
+    dot(), dash(), dash(), dash(), dash();
     break;
     
 
     case "2":
-    1;
+    dot(), dot(), dash(), dash();
     break;
     
 
     case "3":
-    1;
+    dot(), dot(), dot(), dash(), dash();
     break;
     
 
     case "4":
-    1;
+    dot(), dot(), dot(), dot(), dash();
     break;
     
 
     case "5":
-    1;
+    dot(), dot(), dot(), dot(), dot();
     break;
     
 
     case "6":
-    1;
+    dash(), dot(), dot(), dot(), dot();
     break;
     
 
     case "7":
-    1;
+    dash(), dash(), dot(), dot(), dot();
     break;
     
     
     case "8":
-    1;
+    dash(), dash(), dash(), dot(), dot();
     break;
   
   
     case "9":
-    1;
+    dash(), dash(), dash(), dash(), dot();
     break;
   
 
   default:
+    newWord();
     break;
   }
   newLetter();
