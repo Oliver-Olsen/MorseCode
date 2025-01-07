@@ -11,6 +11,7 @@
 #define LEDPIN 13     //Defines the pin used for the LED as pin 13
 #define TIMEUNIT 400  //Defines the amount if milliseconds in a time unit
 #define MSG "SOS"     //Defines the input we want to write with morse
+//#define MSG "Oiver og Linus"
 
 int wordLength; //Creates an unsigned integer, word
 
