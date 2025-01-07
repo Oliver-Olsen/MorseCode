@@ -51,6 +51,8 @@ void charConverter(char word){
   // Function finds the corrosponding case for the incomming letter.
   // and calls for either the dots and or dash functions.
   // if a space is entered, then the deault catches the space and handles it.
+  word = tolower('word')
+
   switch (word)
   {
     case "a":
