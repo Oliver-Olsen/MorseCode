@@ -1,12 +1,12 @@
 #include <Arduino.h>
 #define LEDPIN 13
-// put function declarations here:
-int myFunction(char);
+#define TIMEUNIT 500
 
 void setup() {
   // put your setup code here, to run once:
-  int result = myFunction(2, 3);
   Serial.begin(115200); 
+  pinMode(LEDPIN, OUTPUT); 
+  digitalWrite(LEDPIN, LOW); 
 }
 
 void loop() {
@@ -14,7 +14,24 @@ void loop() {
   
 }
 
-// put function definitions here:
-int myFunction(char word) {
-  return word;
+void dot() {
+  digitalWrite(LEDPIN, HIGH); 
+  delay(1 * TIMEUNIT); 
+  digitalWrite(LEDPIN, LOW); 
+  delay(1 * TIMEUNIT); 
+}
+
+void dash() {
+  digitalWrite(LEDPIN, HIGH); 
+  delay(3 * TIMEUNIT); 
+  digitalWrite(LEDPIN, LOW); 
+  delay(1 * TIMEUNIT); 
+}
+
+void newLetter() {
+  delay(3 * TIMEUNIT); 
+}
+
+void newWord() {
+  delay(7 * TIMEUNIT); 
 }
