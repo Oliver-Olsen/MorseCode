@@ -1,4 +1,7 @@
 #include <Arduino.h>
+//Oliver Olsen s205443
+//Nils Wulff   s223968
+
 
 // Question a1:
 // To write the numbers from 0-9 you would only need 4 bits (1001 = 9).
